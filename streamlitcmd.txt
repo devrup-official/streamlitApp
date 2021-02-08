@@ -1,0 +1,71 @@
+#create df
+df = pd.DataFrame({
+  'first column': [1, 2, 3, 4],
+  'second column': [10, 20, 30, 40]
+})
+
+df
+
+#Draw a line chart
+chart_data = pd.DataFrame(
+    np.random.randn(20,3),
+    columns=['a', 'b', 'c']
+)
+st.line_chart(chart_data)
+
+#Plot a map
+map_data = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon'])
+
+st.map(map_data)
+
+#Use checkboxes to show/hide data
+if st.checkbox('Show dataframe'):
+    chart_data = pd.DataFrame(
+       np.random.randn(20, 3),
+       columns=['a', 'b', 'c'])
+
+    st.line_chart(chart_data)
+
+#Use a selectbox for options
+# option = st.selectbox(
+#     'Which number do you like best?',
+#      df['first column'])
+
+# 'You selected: ', option
+
+#Put widgets in a sidebar
+option = st.sidebar.selectbox(
+    'Which number do you like best?',
+     df['first column'])
+
+'You selected:', option
+
+#Show progress
+#Reocrd a screencast - really cool feature!
+
+
+#helpful
+
+# st.write(pd.DataFrame({
+#     'first column': [1, 2, 3, 4],
+#     'second column': [10, 20, 30, 40]
+# }))
+
+#streamlit read from csv
+# df = st.cache(pd.read_csv)("survey_results_public")
+
+# is_check = st.checkbox("Display Data")
+# if is_check:
+#     st.write(df)
+
+#grab data in one cell
+#st.write(df.at[0, 'Respondent'])
+
+#bar graph
+'''
+filtered_data = df['Student']
+st.write(filtered_data)
+st.bar_chart(filtered_data)
+'''
